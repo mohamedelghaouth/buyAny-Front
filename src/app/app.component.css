@@ -1,0 +1,9 @@
+.example-button-row {
+    margin: auto;
+    width: 490px;
+    display:flex ;
+    justify-content: center;
+  }
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
