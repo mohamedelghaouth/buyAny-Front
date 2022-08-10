@@ -1,1 +1,20 @@
-<p>authentication works!</p>
+<div style="display:flex ;justify-content: center; margin-top: 10px;">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+        <label for="full-name" >Name : </label>
+        <input id="full-name" type="text" formControlName="fullName">
+    
+        <label for="user-name" >User name : </label>
+        <input id="user-name" type="text" formControlName="userName">
+    
+        <label for="password" >Password : </label>
+        <input id="password" type="password" formControlName="password">
+    
+        <label for="password-confirmation" >Confirm your password : </label>
+        <input id="password-confirmation" type="password" formControlName="passwordConfirmation">
+        
+        <p>Complete the form to enable button.</p>
+        <button mat-raised-button color ="primary" type="submit" [disabled]="!signUpForm.valid">Submit</button>
+    
+    </form>
+</div>
