@@ -13,8 +13,9 @@
         <label for="password-confirmation" >Confirm your password : </label>
         <input id="password-confirmation" type="password" formControlName="passwordConfirmation">
         
-        <p>Complete the form to enable button.</p>
+        <p>Complete the form to enable submit button.</p>
         <button mat-raised-button color ="primary" type="submit" [disabled]="!signUpForm.valid">Submit</button>
-    
+        <p>Already have an account ? <a routerLink="/authentication/login">Login</a></p>
     </form>
 </div>
+<router-outlet></router-outlet>

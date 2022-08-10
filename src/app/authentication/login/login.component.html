@@ -1,0 +1,16 @@
+<div style="display:flex ;justify-content: center; margin-top: 10px;">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <label for="user-name" >User name : </label>
+        <input id="user-name" type="text" formControlName="userName">
+    
+        <label for="password" >Password : </label>
+        <input id="password" type="password" formControlName="password">
+    
+        <button style="display: block; margin-top:10px;" mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid" routerLink="/">Login</button>
+     
+        <p>Not a member ? <a routerLink="/authentication">SignUp</a></p>
+    </form>
+</div>
+<router-outlet></router-outlet>
