@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/** @format */
+
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import home from "./pages/home/index";
+import admin from "./pages/admin/admin";
+import ProtectedRoute from "./components/ProtectedRoute/protectedRoute";
+import { ReactKeycloakProvider } from "@react-keycloak/web";
+import keycloak from "./helper/keycloakHelper";
+import Login from "./pages/login/login";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ReactKeycloakProvider authClient={keycloak}>
+      <React.StrictMode>
+        <BrowserRouter basename="/">
+          <Routes>
+            <Route path="/" element={home()} />
+            <Route
+              path="admin"
+              element={<ProtectedRoute>{admin}</ProtectedRoute>}
+            />
+            <Route path="login" element={Login()} />
+          </Routes>
+        </BrowserRouter>
+      </React.StrictMode>
+    </ReactKeycloakProvider>
   );
 }
 
